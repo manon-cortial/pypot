@@ -14,7 +14,11 @@ matrix:
       #   language: objective-c
       #   env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=osx
       - os: linux
-        env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux       
+        env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux
+
+      - os: linux
+        env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux BUILD=test-vrep
+        sudo: required       
       # - os: linux
       #   env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=linux
 
