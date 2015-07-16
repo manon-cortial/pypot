@@ -1,15 +1,16 @@
 #!/bin/bash
+set +e
 echo "Running after_success-release.sh on $TRAVIS_OS_NAME"
 
 echo "Installing wheel..."
-pip install wheel || exit
+pip install -q wheel || exit
 echo "Installing twine..."
-pip install twine || exit
+pip install -q twine || exit
 
 echo "Creating distribution files..."
 # This release build creates the source distribution. All other release builds
 # should not.
-python setup.py sdist bdist bdist_wheel || exit
+python setup.py -q sdist bdist bdist_wheel || exit
 
 echo "Created the following distribution files:"
 ls -l dist
