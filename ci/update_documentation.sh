@@ -46,6 +46,7 @@ pushd ..
         if [[ "$TRAVIS_BRANCH" != "master" ]]; then
         echo "Testing on a branch other than master. No deployment will be done."
         exit 0
+        fi
     fi
 
     # Exit if Pypi is up to date (need to check online doc instead)
