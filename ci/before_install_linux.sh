@@ -11,11 +11,10 @@ wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O mini
 chmod +x miniconda.sh
 ./miniconda.sh -b
 export PATH=/home/travis/miniconda/bin:$PATH
-conda update --yes conda
-conda install --yes -n pip
+conda update --yes -q conda
 # conda create
 # source activate condaenv
-conda install --yes python=$TRAVIS_PYTHON_VERSION atlas numpy scipy matplotlib
+conda install --yes pip python=$TRAVIS_PYTHON_VERSION atlas numpy scipy matplotlib
 
 
 # Upgrade pip
