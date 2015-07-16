@@ -1,4 +1,6 @@
  #!/bin/bash
+set -x
+set -e
 echo "Running before_install-linux.sh on $TRAVIS_OS_NAME"
 
 # Display os with more verbose than $TRAVIS_OS_NAME

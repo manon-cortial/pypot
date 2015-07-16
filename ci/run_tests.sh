@@ -1,7 +1,11 @@
 #!/bin/bash
 set -x
-
+set -e
 # TODO :)
 python --version
 
-python -c "import pypot" || exit
+cat <<EOF | python -
+import pypot
+import pypot.robot
+import pypot.dynamixel
+EOF
