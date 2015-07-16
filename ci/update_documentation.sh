@@ -4,9 +4,9 @@ set -e
 
 git config --global user.email $GIT_EMAIL
 git config --global user.name $GIT_NAME
-
+git_url=https://$GH_TOKEN@github.com/$GH_USERNAME/$GH_REPO.git
 # Configure Git to push with GitHub Oauth token
-git remote set-url origin https://$GH_TOKEN@github.com/$GH_USERNAME/$GH_REPO.git
+git remote set-url origin $git_url
 
 # check the git config
 cat .git/config
@@ -15,12 +15,26 @@ cat .git/config
 pip install -q Sphinx sphinxjp.themes.basicstrap
 pip install -q bottle zmq zerorpc 
 
-# Call @pierre-rouanet python snippet to build the doc
+# Build the doc
 pushd ..
-    curl -O https://gist.githubusercontent.com/pierre-rouanet/f296ea65a2dbf913ce78/raw/788e4b0433c1dac61aac681562dc59bb333e5e7e/make-doc.py
-    # For the tests, to be removed
-    sed -e s/poppy-project/show0k/g make-doc.py > make-doc.py
-    python make-doc.py pypot
+    # git_url="https://github.com/$GH_USERNAME/$GH_REPO.git"
+    doc_src="./$GH_REPO/doc"
+    tmp_repo="/tmp/$GH_REPO-doc"
+
+        make -C "$doc_src" clean
+        make -C "$doc_src" html
+
+        if [ -d "$tmp_repo" ] then
+            rm -rf "$tmp_repo"/
+        mkdir "$tmp_repo"
+
+        git clone -b gh-pages "$git_url" "$tmp_repo" 
+        cp -r "$doc_src"/_build/html/ "$tmp_repo"
+        pushd "$tmp_repo"
+            git add -A
+            git commit -m "doc updates"
+            git push origin gh-pages
+        popd
 popd
 
 set +x
