@@ -1,8 +1,5 @@
  #!/bin/bash
-
-echo
-echo Running before_install-osx.sh...
-echo
+echo "Running before_install-osx.sh on $TRAVIS_OS_NAME"
 
 # Update brew packages
 brew update

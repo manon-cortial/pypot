@@ -1,9 +1,7 @@
 #!/bin/bash
 set -x
 
-echo
-echo "Running after_success-release.sh..."
-echo
+echo "Running after_success-release.sh on $TRAVIS_OS_NAME"
 
 echo "Installing wheel..."
 pip install wheel || exit

@@ -25,8 +25,8 @@ env:
 
 before_install:
   - echo $PWD
-  - "if [ ${TRAVIS_OS_NAME:-'linux'} = 'linux' ]; then . ./ci/before_install_linux.sh; fi"
-  - "if [ ${TRAVIS_OS_NAME:-'linux'} = 'osx' ]; then . ./ci/before_install_osx.sh; fi"
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then . ./ci/before_install_linux.sh; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then . ./ci/before_install_osx.sh; fi
 
 install:
   - . ./ci/install.sh
@@ -36,7 +36,7 @@ script:
 
 # TODO push release only if it is a new release
 after_success:
-  - "if [ ${TRAVIS_OS_NAME:-'linux'} = 'linux' ]; then . ./ci/after_success_release_linux.sh; fi"
-  - "if [ ${TRAVIS_OS_NAME:-'linux'} = 'osx' ]; then . ./ci/after_success_release_osx.sh; fi"
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then . ./ci/after_success_release_linux.sh; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then . ./ci/after_success_release_osx.sh; fi
 
 
