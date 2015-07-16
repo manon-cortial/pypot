@@ -12,8 +12,8 @@ chmod +x miniconda.sh
 ./miniconda.sh -b
 export PATH=/home/travis/miniconda/bin:$PATH
 conda update --yes conda
-conda create
 conda install --yes -n pip
+# conda create
 # source activate condaenv
 conda install --yes python=$TRAVIS_PYTHON_VERSION atlas numpy scipy matplotlib
 
