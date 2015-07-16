@@ -9,6 +9,7 @@ sudo apt-get -qq update
 
 # Install Scipy dependancies
 sudo apt-get install -qq --force-yes libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libstdc++6 build-essential gfortran python-all-dev libatlas-base-dev
+pip install scipy -q
 
 # Upgrade pip
 pip install pip --upgrade

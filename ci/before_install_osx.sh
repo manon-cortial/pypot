@@ -10,3 +10,5 @@ brew outdated | grep -q <package-name> && brew upgrade <package-name>
 
 # Upgrade pip
 pip install pip --upgrade
+
+pip install scipy -q
