@@ -1,5 +1,6 @@
  #!/bin/bash
 set -x
+set -e
 echo "Running before_install-osx.sh on $TRAVIS_OS_NAME"
 
 # # Display os with more verbose than $TRAVIS_OS_NAME
@@ -7,12 +8,23 @@ echo "Running before_install-osx.sh on $TRAVIS_OS_NAME"
 
 # Update brew packages
 brew update
-# brew outdated | grep -q <package-name> && brew upgrade <package-name>
+
+# Use miniconda python (provide binaries for scipy and numpy on Linux)
+if [[ "$PYTHON_VERSION" == "2.7" ]]; then
+    curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh
+else
+    curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+fi
+chmod +x miniconda.sh
+./miniconda.sh -b
+export PATH=$PWD/miniconda/bin:$PATH
+conda update --yes -q conda
+# conda create
+# source activate condaenv
+conda install --yes pip python=$PYTHON_VERSION atlas numpy scipy matplotlib
 
 # Upgrade pip
 pip install pip --upgrade
-
-pip install scipy -q
 
 # Show config
 which python

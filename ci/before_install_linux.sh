@@ -6,16 +6,20 @@ echo "Running before_install-linux.sh on $TRAVIS_OS_NAME"
 # Display os with more verbose than $TRAVIS_OS_NAME
 lsb_release -a
 
-# Use miniconda to install scipy and numpy packages (need to be compiled)
-wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
+# Use miniconda python (provide binaries for scipy and numpy on Linux)
+if [[ "$PYTHON_VERSION" == "2.7" ]]; then
+    curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh 
+else
+    curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+fi
+
 chmod +x miniconda.sh
 ./miniconda.sh -b
 export PATH=/home/travis/miniconda/bin:$PATH
 conda update --yes -q conda
 # conda create
 # source activate condaenv
-conda install --yes pip python=$TRAVIS_PYTHON_VERSION atlas numpy scipy matplotlib
-
+conda install --yes pip python=$PYTHON_VERSION atlas numpy scipy matplotlib
 
 # Upgrade pip
 pip install pip --upgrade

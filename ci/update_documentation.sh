@@ -17,7 +17,6 @@ pip install -q bottle zmq zerorpc
 
 # Build the doc
 pushd ..
-    # git_url="https://github.com/$GH_USERNAME/$GH_REPO.git"
     doc_src="./$GH_REPO/doc"
     tmp_repo="/tmp/$GH_REPO-doc"
 
@@ -36,5 +35,3 @@ pushd ..
             git push origin gh-pages
         popd
 popd
-
-set +x
