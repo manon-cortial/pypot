@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 set -e
 
 # TODO parse online doc to see if it is the last version or not
