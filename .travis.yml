@@ -6,6 +6,7 @@ os:
 
 matrix:
     include:
+      # hack to use osx vm
       - os: osx
         language: objective-c
         env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=osx
@@ -14,10 +15,8 @@ matrix:
       #   env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=osx
       - os: linux
         env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux       
-      - os: linux
-        env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=linux
-    allow_failures:
-      - env: PYTHON_VERSION=3.4
+      # - os: linux
+      #   env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=linux
 
         
 
