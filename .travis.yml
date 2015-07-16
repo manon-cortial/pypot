@@ -6,7 +6,8 @@ os:
 
 matrix:
     include:
-      - os: osx
+      - name: "osx py27"
+        os: osx
         language: objective-c
         env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=osx
       # - os: osx
