@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 echo "Running install.sh on $TRAVIS_OS_NAME"
 
 # Verify python version

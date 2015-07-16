@@ -1,6 +1,4 @@
  #!/bin/bash
-set -x
-
 echo "Running before_install-linux.sh on $TRAVIS_OS_NAME"
 
 # Use miniconda to install scipy and numpy packages (need to be compiled)

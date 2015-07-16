@@ -12,7 +12,6 @@ env:
   global:
   # Directory of setup.py
   - SETUP_DIR=.
-  - PATH=$TRAVIS_BUILD_DIR/python/bin:$PATH
   # PyPi credentials for manual uploads to Pypi on release.
   - PYPI_USERNAME=pierre-rouanet
   # PYPI_PASSWD encrypted below > travis encrypt PYPI_PASSWD=XXXXXX --add

@@ -1,6 +1,4 @@
 #!/bin/bash
-set -x
-
 echo "Running after_success-release.sh on $TRAVIS_OS_NAME"
 
 echo "Installing wheel..."
