@@ -20,6 +20,11 @@ conda install --yes pip python=$TRAVIS_PYTHON_VERSION atlas numpy scipy matplotl
 # Upgrade pip
 pip install pip --upgrade
 
+# Show config
+which python
+which pip
+python --version
+
 # Download V-REP
 wget http://coppeliarobotics.com/V-REP_PRO_EDU_V${VREP_VERSION}_64_Linux.tar.gz
 tar -xzf V-REP_PRO_EDU_V${VREP_VERSION}_64_Linux.tar.gz

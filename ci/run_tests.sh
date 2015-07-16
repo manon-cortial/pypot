@@ -2,6 +2,8 @@
 set -x
 set -e
 # TODO :)
+which python
+which pip
 python --version
 
 cat <<EOF | python -
