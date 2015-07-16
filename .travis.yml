@@ -8,7 +8,7 @@ matrix:
     include:
       - os: osx
         language: objective-c
-        env: TRAVIS_PYTHON_VERSION=2.7 OS=osx
+        env: TRAVIS_PYTHON_VERSION=2.7 TRAVIS_OS_NAME=osx
       - os: linux
         env: TRAVIS_PYTHON_VERSION=2.7 OS=linux
       - env: TRAVIS_PYTHON_VERSION=3.4 OS=linux
