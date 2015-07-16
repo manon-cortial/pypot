@@ -1,6 +1,10 @@
  #!/bin/bash
 echo "Running before_install-osx.sh on $TRAVIS_OS_NAME"
 
+# Display os with more verbose than $TRAVIS_OS_NAME
+lsb_release -a
+
+
 # Update brew packages
 brew update
 brew outdated | grep -q <package-name> && brew upgrade <package-name>

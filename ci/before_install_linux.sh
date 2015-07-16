@@ -1,6 +1,9 @@
  #!/bin/bash
 echo "Running before_install-linux.sh on $TRAVIS_OS_NAME"
 
+# Display os with more verbose than $TRAVIS_OS_NAME
+lsb_release -a
+
 # Use miniconda to install scipy and numpy packages (need to be compiled)
 wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
 chmod +x miniconda.sh
