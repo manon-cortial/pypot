@@ -9,9 +9,13 @@ matrix:
       - os: osx
         language: objective-c
         env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=osx
+      - os: osx
+        language: objective-c
+        env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=osx
       - os: linux
         env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux
-      - env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=linux
+      - os: linux
+        env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=linux
       # - python: 3.3          
       # - python: 3.4
       # - os: osx

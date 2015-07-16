@@ -6,15 +6,14 @@ echo "Running before_install-linux.sh on $TRAVIS_OS_NAME"
 # Display os with more verbose than $TRAVIS_OS_NAME
 lsb_release -a
 
-echo $HOME
 # Use miniconda python (provide binaries for scipy and numpy on Linux)
 if [[ "$PYTHON_VERSION" == "2.7" ]]; then
     curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh 
-    export PATH=/home/travis/miniconda/bin:$PATH
+    export PATH=$HOME/miniconda/bin:$PATH
 
 else
     curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 
-    export PATH=/home/travis/miniconda3/bin:$PATH
+    export PATH=/$HOME/miniconda3/bin:$PATH
 
 fi
 

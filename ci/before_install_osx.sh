@@ -8,7 +8,7 @@ echo "Running before_install-osx.sh on $TRAVIS_OS_NAME"
 
 # Update brew packages
 # brew update
-
+echo $HOME
 # Use miniconda python (provide binaries for scipy and numpy on Linux)
 if [[ "$PYTHON_VERSION" == "2.7" ]]; then
     curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh
@@ -20,9 +20,9 @@ fi
 chmod +x miniconda.sh
 ./miniconda.sh -b
 conda update --yes -q conda
-# conda create
-# source activate condaenv
-conda install --yes pip python=$PYTHON_VERSION atlas numpy scipy matplotlib
+
+# Thre is no need to install atlas
+conda install --yes pip python=$PYTHON_VERSION numpy scipy matplotlib
 
 # Upgrade pip
 pip install pip --upgrade
