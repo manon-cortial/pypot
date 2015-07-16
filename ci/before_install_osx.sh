@@ -19,3 +19,4 @@ wget http://coppeliarobotics.com/V-REP_PRO_EDU_V${VREP_VERSION}_Mac.zip
 unzip V-REP_PRO_EDU_V${VREP_VERSION}_Mac.zip
 mv ./V-REP_PRO_EDU_V${VREP_VERSION}_Mac $VREP_ROOT_DIR
 
+set +x

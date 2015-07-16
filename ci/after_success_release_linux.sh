@@ -29,3 +29,5 @@ twine upload dist/*.tar.gz -u "${PYPI_USERNAME}" -p "${PYPI_PASSWD}"
 # files.
 # See: https://bitbucket.org/pypa/pypi-metadata-formats/issue/15/enhance-the-platform-tag-definition-for
 
+set +x
+set +e

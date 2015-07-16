@@ -19,3 +19,5 @@ pushd ..
     sed -e s/poppy-project/show0k/g make-doc.py
     python make-doc.py pypot
 popd
+
+set +x

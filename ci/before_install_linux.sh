@@ -25,4 +25,5 @@ wget http://coppeliarobotics.com/V-REP_PRO_EDU_V${VREP_VERSION}_64_Linux.tar.gz
 tar -xzf V-REP_PRO_EDU_V${VREP_VERSION}_64_Linux.tar.gz
 mv ./V-REP_PRO_EDU_V${VREP_VERSION}_64_Linux $VREP_ROOT_DIR
 
-
+# Remove useless outputs in STDOUT
+set +x

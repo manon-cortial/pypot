@@ -9,3 +9,6 @@ import pypot
 import pypot.robot
 import pypot.dynamixel
 EOF
+
+set +x
+set +e
