@@ -18,20 +18,21 @@ pip install -q bottle zmq zerorpc
 # Build the doc
 pushd ..
     doc_src=./"$GH_REPO"/doc
-    tmp_repo=/tmp/"$GH_REPO"-doc
+    tmp_repo=/tmp/$GH_REPO-doc
 
-        make -C $doc_src clean
-        make -C $doc_src html
+    make -C $doc_src clean
+    make -C $doc_src html
 
-        if [ -d "$tmp_repo" ] then
-            rm -rf "$tmp_repo"/
-        mkdir "$tmp_repo"
+    if [ -d $tmp_repo ] then
+       rm -rf $tmp_repo/
+    fi
+    mkdir $tmp_repo
 
-        git clone -b gh-pages "$git_url" "$tmp_repo" 
-        cp -r "$doc_src"/_build/html/ "$tmp_repo"
-        pushd "$tmp_repo"
-            git add -A
-            git commit -m "doc updates"
-            git push origin gh-pages
-        popd
+    git clone -b gh-pages $git_url $tmp_repo 
+    cp -r $doc_src/_build/html/ $tmp_repo
+    pushd $tmp_repo
+        git add -A
+        git commit -m "doc updates"
+        git push origin gh-pages
+    popd
 popd
