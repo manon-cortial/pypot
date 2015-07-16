@@ -7,7 +7,15 @@ os:
   - linux
   - osx
 
-#sudo: required
+matrix:
+    include:
+        - python: 2.7
+        - python: 3.3          
+        - python: 3.4
+        - language: generic
+          os: osx
+          osx_image: beta-xcode6.3
+        
 
 env:
   global:
