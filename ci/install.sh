@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -x
 echo
 echo Running install.sh...
 echo

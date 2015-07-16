@@ -6,6 +6,8 @@ os:
 - linux
 - osx
 
+sudo: required
+
 env:
   global:
   - PATH=$TRAVIS_BUILD_DIR/python/bin:$PATH
