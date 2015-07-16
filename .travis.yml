@@ -11,7 +11,7 @@ matrix:
       - python: 3.4
       - language: python
         os: osx
-      #   osx_image: beta-xcode6.3
+          osx_image: beta-xcode6.3
         
 
 env:
@@ -37,7 +37,6 @@ env:
 
 
 before_install:
-  - echo $PWD
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then . ./ci/before_install_linux.sh; else echo "$TRAVIS_OS_NAME" ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then . ./ci/before_install_osx.sh; else echo "$TRAVIS_OS_NAME" ; fi
 

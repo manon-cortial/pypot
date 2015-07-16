@@ -9,8 +9,8 @@ git config --global user.name $GIT_NAME
 git remote set-url origin https://$GH_TOKEN@github.com/$GH_USERNAME/$GH_REPO.git
 
 # Install Sphinx
-pip install Sphinx[all]
-pip install sphinxjp.themes.basicstrap
+pip install -q Sphinx sphinxjp.themes.basicstrap
+pip install -q bottle zmq zerorpc 
 
 # Call @pierre-rouanet python snippet to build the doc
 cd ..
