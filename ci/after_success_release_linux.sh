@@ -6,7 +6,7 @@ echo "Running after_success-release.sh..."
 echo
 
 echo "Installing wheel..."
-pip install wheel --user || exit
+pip install wheel || exit
 echo "Installing twine..."
 pip install twine || exit
 
