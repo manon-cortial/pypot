@@ -8,7 +8,7 @@ echo
 echo "Installing wheel..."
 pip install wheel --user || exit
 echo "Installing twine..."
-sudo pip install twine || exit
+pip install twine || exit
 
 # Twine gets installed into /Users/travis/Library/Python/2.7/bin, which needs to
 # be added to the PATH
