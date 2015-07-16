@@ -1,4 +1,6 @@
 #!/bin/bash
+set +e
+set -x
 echo "Running after_success-release.sh on $TRAVIS_OS_NAME"
 
 echo "Installing wheel..."
@@ -26,3 +28,6 @@ twine upload dist/*.whl -u "${PYPI_USERNAME}" -p "${PYPI_PASSWD}"
 
 echo "Attempting to upload all distribution files to PyPi..."
 twine upload dist/* -u "${PYPI_USERNAME}" -p "${PYPI_PASSWD}"
+
+set +x
+set +e
