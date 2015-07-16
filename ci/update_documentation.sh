@@ -23,7 +23,7 @@ pushd ..
     make -C $doc_src clean
     make -C $doc_src html
 
-    if [ -d $tmp_repo ] then
+    if [ -d $tmp_repo ]; then
        rm -rf $tmp_repo/
     fi
     mkdir $tmp_repo
