@@ -1,4 +1,4 @@
-language: python
+language: cpp
 
 os:
   - linux
@@ -7,7 +7,6 @@ os:
 matrix:
     include:
       - python: 2.7
-      - python: 3.2
       - python: 3.3          
       - python: 3.4
       - os: osx
