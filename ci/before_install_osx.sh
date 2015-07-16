@@ -9,3 +9,9 @@ brew outdated | grep -q <package-name> && brew upgrade <package-name>
 pip install pip --upgrade
 
 pip install scipy -q
+
+# Download V-REP
+wget http://coppeliarobotics.com/V-REP_PRO_EDU_V${VREP_VERSION}_Mac.zip
+unzip V-REP_PRO_EDU_V${VREP_VERSION}_Mac.zip
+mv ./V-REP_PRO_EDU_V${VREP_VERSION}_Mac $VREP_ROOT_DIR
+

@@ -29,6 +29,10 @@ env:
     # GH_TOKEN encrypted below > travis encrypt GH_TOKEN=XXXXXX --add
     - secure: g96DpuHrlUBuIHCiVJZXF7iX80K48Ke3S37NVwCNm/iZ0Sb9YkvNYTR0yOBnGu7EqKOftSK8CvzG+FSyLvarUf8eEsqRsSASH5IsovMHYf3ycfzPvFtLzPN00wW+pm1HU0n2qO+iY2oJLEqFEJ7CwbTGLabwyzj5hj+pVMJo7hB5lCoq48zKnFYFpXr/++ktymXD/gbS6MpaoqOV/z/pT+56YWUx9ovPMn3CC2gNVroM+NebtcwT5yrIujME1/CvgwBzPIJ+2fEdzqF7TeUjisOMYR+K6k8s0fZ0IP9ywCJi/ZkptsrEkvrBzJe1dZm6yoRPXbpwU9bHGWMl7USBwsUY7c22xc3gxq3i2iCXBePThXecnMzsaM32jmIpqeHytXj8N71AzUkhFI5eKTnN6Pm11k1gW4P87gVrrmNhEyDCZUKDpmsMh+XRMrGHa2v53ciukXI0OWQfIQchyXch8r37+hBjOklzoIdManYaFFm4xVz8vyXaXT2qGKD+53dQdxpelT9JdSQdfXjWhsQDEGxun9qu/e38EyK8v/HgmFapP6K7cAPhLtrQdKXVBBNV8G0HlTVAQReCSib6ExTnMAxnO4LV5x3xSSFI9WPZ61IIuQzv35bItkM4Ku3ytUFucS/WyiC7CqZV7Vjasl5d7CCs452v0yDDSE58MaS7qkQ=
 
+    # V-REP conf
+    - VREP_VERSION=3_1_2
+    - VREP_ROOT_DIR=$TRAVIS_BUILD_DIR/vrep
+
 
 before_install:
   - echo $PWD
