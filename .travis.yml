@@ -9,6 +9,7 @@ matrix:
       - python: 2.7
       - python: 3.3          
       - python: 3.4
+      - python: 3.5
       # - language: generic
       #   os: osx
       #   osx_image: beta-xcode6.3
