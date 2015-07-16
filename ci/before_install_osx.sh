@@ -1,4 +1,5 @@
  #!/bin/bash
+set -x
 echo "Running before_install-osx.sh on $TRAVIS_OS_NAME"
 
 # Display os with more verbose than $TRAVIS_OS_NAME
