@@ -7,17 +7,18 @@ echo "Running before_install-osx.sh on $TRAVIS_OS_NAME"
 # lsb_release -a
 
 # Update brew packages
-brew update
+# brew update
 
 # Use miniconda python (provide binaries for scipy and numpy on Linux)
 if [[ "$PYTHON_VERSION" == "2.7" ]]; then
     curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh
+    export PATH=/Users/travis/miniconda/bin:$PATH
 else
     curl -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    export PATH=/Users/travis/miniconda3/bin:$PATH
 fi
 chmod +x miniconda.sh
 ./miniconda.sh -b
-export PATH=$PWD/miniconda/bin:$PATH
 conda update --yes -q conda
 # conda create
 # source activate condaenv
