@@ -56,11 +56,12 @@ which pip
 python --version
 
 set +e
-cd $VREP_ROOT_DIR/
 
 if [[ "$BUILD" == "test-vrep" ]]; then
-    sudo apt-get install --yes xvfb
-    xvfb-run --auto-servernum --server-num=1 ./vrep.sh -h  &
+    pushd $VREP_ROOT_DIR/
+        sudo apt-get install --yes xvfb
+        xvfb-run --auto-servernum --server-num=1 ./vrep.sh -h  &
+    popd
 fi
 
 # Remove useless outputs in STDOUT
