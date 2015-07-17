@@ -45,7 +45,7 @@ chmod +x miniconda.sh
 conda update --yes -q conda
 # conda create
 # source activate condaenv
-conda install --yes pip python=$PYTHON_VERSION atlas numpy scipy matplotlib pyzmq flake8
+conda install --yes pip python=$PYTHON_VERSION numpy scipy matplotlib pyzmq flake8
 
 # Upgrade pip
 pip install pip --upgrade
@@ -53,16 +53,6 @@ pip install pip --upgrade
 # Show config
 which python
 which pip
-python --version
-
-set +e
-
-if [[ "$BUILD" == "test-vrep" ]]; then
-    pushd $VREP_ROOT_DIR/
-        sudo apt-get install --yes xvfb
-        xvfb-run --auto-servernum --server-num=1 ./vrep.sh -h  &
-    popd
-fi
 
 # Remove useless outputs in STDOUT
 set +x
