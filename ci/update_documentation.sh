@@ -13,9 +13,6 @@ git_url=https://$GH_TOKEN@github.com/$GH_USERNAME/$GH_REPO.git
 # Configure Git to push with GitHub Oauth token
 git remote set-url origin $git_url
 
-# check the git config
-cat .git/config
-
 # Install Sphinx
 pip install -q Sphinx sphinxjp.themes.basicstrap
 pip install -q bottle zmq zerorpc 
@@ -48,11 +45,15 @@ pushd ..
         fi
     fi
 
+
     # Exit if Pypi is up to date (need to check online doc instead)
     if [[ "$pypi_package_version" == "$pypot_src_version" ]]; then
-        echo "Already up to date"
+        echo "Pypi version == source version, the doc won't be commited"
         exit 0
     fi
+
+    # If there is nothing to commit, it won't be considered as an error
+    set +e
 
     # Push the new documentation only if it is not a pull request and we are on master
     pushd $tmp_repo
