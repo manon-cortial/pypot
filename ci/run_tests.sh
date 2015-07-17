@@ -18,13 +18,10 @@ if [[ "$BUILD" == "test-vrep" ]]; then
     popd
 
     pip install poppy-humanoid
-    cat << EOF | python -
-    from poppy.creatures import PoppyHumanoid
-    from pypot.vrep import from_vrep
-    poppy = PoppyHumanoid(simulator='vrep')
-    EOF
-
-
+    python -c "from poppy.creatures import PoppyHumanoid ;
+    from pypot.vrep import from_vrep ;
+    poppy = PoppyHumanoid(simulator='vrep')"
+    set -e
 fi
 
 
