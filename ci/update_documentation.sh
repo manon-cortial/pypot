@@ -11,7 +11,7 @@ git config --global user.email $GIT_EMAIL
 git config --global user.name $GIT_NAME
 git_url=https://$GH_TOKEN@github.com/$GH_USERNAME/$GH_REPO.git
 # Configure Git to push with GitHub Oauth token
-git remote set-url origin $git_url
+# git remote set-url origin $git_url
 
 # Install Sphinx
 pip install -q Sphinx sphinxjp.themes.basicstrap
