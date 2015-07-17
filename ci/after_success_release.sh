@@ -1,5 +1,5 @@
 #!/bin/bash
-set +e
+set -e
 set -x
 echo "Running after_success_release.sh on $TRAVIS_OS_NAME"
 
@@ -16,10 +16,14 @@ if [[ "$TRAVIS" == "true" ]]; then
         echo "Creating distribution files..."
         if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
-            python setup.py version
+            # remove error on python 3.4
+            # ValueError: invalid prefix: filename '/home/travis/miniconda3/lib/python3.4/site-packages/pypot/__init__.py' doesn't start with 'build/bdist.linux-x86_64/dumb'
+            if [[ "$PYTHON_VERSION" == "3.4" ]];then
+                set +e
+            fi
             # This release build creates the source distribution. All other release builds
             # should not.
-            python setup.py -q sdist bdist || exit
+            python setup.py -q sdist bdist
 
             echo "Created the following distribution files:"
             ls -l dist
@@ -41,7 +45,6 @@ if [[ "$TRAVIS" == "true" ]]; then
             # See: https://bitbucket.org/pypa/pypi-metadata-formats/issue/15/enhance-the-platform-tag-definition-for
 
         elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-            python setup.py version
             python setup.py bdist bdist_wheel || exit
             echo "Created the following distribution files:"
             ls -l dist
