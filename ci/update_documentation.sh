@@ -38,30 +38,18 @@ pushd ..
 
     # Exit if commit is untrusted
     if [[ "$TRAVIS" == "true" ]]; then
-        if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
+        if [[ "$TRAVIS_PULL_REQUEST" != "false" ]] || [[ "$TRAVIS_BRANCH" != "master" ]]; then
         echo "This is a pull request. No deployment will be done."
-        exit 0
-        fi
-        if [[ "$TRAVIS_BRANCH" != "master" ]]; then
-        echo "Testing on a branch other than master. No deployment will be done."
-        exit 0
-        fi
-    fi
-
-
-    # Exit if Pypi is up to date (need to check online doc instead)
-    if [[ "$pypi_package_version" == "$pypot_src_version" ]]; then
+    elif [[ "$pypi_package_version" == "$pypot_src_version" ]]; then
         echo "Pypi version == source version, the doc won't be commited"
-        exit 0
+    else
+        # If there is nothing to commit, it won't be considered as an error
+        set +e
+        # Push the new documentation only if it is not a pull request and we are on master
+        pushd $tmp_repo
+            git add -A
+            git commit -m "doc updates"
+            git push origin gh-pages
+        popd
     fi
-
-    # If there is nothing to commit, it won't be considered as an error
-    set +e
-
-    # Push the new documentation only if it is not a pull request and we are on master
-    pushd $tmp_repo
-        git add -A
-        git commit -m "doc updates"
-        git push origin gh-pages
-    popd
 popd

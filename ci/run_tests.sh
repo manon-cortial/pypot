@@ -3,7 +3,7 @@ set -x
 
 # Pep8
 set +e
-flake8 --config=ci/flake8.config --show-pep8 .
+flake8 --config=ci/flake8.config --statistics --count .
 set -e
 
 # TODO :)

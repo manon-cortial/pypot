@@ -52,9 +52,7 @@ env:
 
 
 before_install:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then . ./ci/before_install_linux.sh; else echo "$TRAVIS_OS_NAME" ; fi
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then . ./ci/before_install_osx.sh; else echo "$TRAVIS_OS_NAME" ; fi
-
+  - . ./ci/before_install.sh
 install:
   - . ./ci/install.sh
 
@@ -64,8 +62,7 @@ script:
 # TODO push release only if it is a new release
 after_success:
   - . ./ci/update_documentation.sh
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then . ./ci/after_success_release_linux.sh; else echo "$TRAVIS_OS_NAME" ; fi
-  - if [ "$TRAVIS_OS_NAME" =="osx" ]; then . ./ci/after_success_release_osx.sh; else echo "$TRAVIS_OS_NAME" ; fi
+  - . ./ci/after_success_release.sh
 
 
 notifications:
