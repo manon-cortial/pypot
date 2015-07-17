@@ -1,7 +1,10 @@
 #! /usr/bin/env python
 import argparse
-import xmlrpclib
-import pip
+try:
+    import xmlrpclib
+except:
+    # For python 3.x
+    import xmlrpc.client as xmlrpclib
 
 
 if __name__ == '__main__':
