@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-set -x
+
 # TODO parse online doc to see if it is the last version or not
 pypot_src_version=$(python -c "import pypot; print (pypot.__version__)")
 pypi_package_version=$(python ci/get_pypi_last_version.py pypot)
@@ -13,9 +13,13 @@ git_url=https://$GH_TOKEN@github.com/$GH_USERNAME/$GH_REPO.git
 # Configure Git to push with GitHub Oauth token
 # git remote set-url origin $git_url
 
+# gevent is not python3 compatible, and apparently needed in osx zmq
+# if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$PYTHON_VERSION" == "3.4" ]]; then
+#     echo "Gevent bug, not possible to build zmq with"
+
 # Install Sphinx
 pip install -q Sphinx sphinxjp.themes.basicstrap bottle
-pip install zmq zerorpc 
+pip install zerorpc 
 
 # Build the doc
 pushd ..
