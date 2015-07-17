@@ -1,9 +1,10 @@
 #!/bin/bash
 set -x
-set -e
 
 # Pep8
+set +e
 flake8 --config=ci/flake8.config --show-pep8 .
+set -e
 
 # TODO :)
 which python
