@@ -19,11 +19,7 @@ if [[ "$BUILD" == "test-vrep" ]]; then
 
     pip install poppy-humanoid
     echo " Display  poppy.get_object_position('pelvis_visual')"
-    python -c "import sys;
-    from poppy.creatures import PoppyHumanoid ;
-    from pypot.vrep import from_vrep ;
-    poppy = PoppyHumanoid(simulator='vrep');
-    sys.stdout.write(poppy.get_object_position('pelvis_visual'))"    
+    python -c "import sys;from poppy.creatures import PoppyHumanoid;from pypot.vrep import from_vrep;poppy = PoppyHumanoid(simulator='vrep');sys.stdout.write(poppy.get_object_position('pelvis_visual'))"    
     set -e
 fi
 
