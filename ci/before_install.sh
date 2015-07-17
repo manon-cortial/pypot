@@ -58,7 +58,7 @@ python --version
 set +e
 cd $VREP_ROOT_DIR/
 
-if [["$BUILD" == "test-vrep" ]]; then
+if [[ "$BUILD" == "test-vrep" ]]; then
     sudo apt-get install --yes xvfb
     xvfb-run --auto-servernum --server-num=1 ./vrep.sh -h  &
 fi
