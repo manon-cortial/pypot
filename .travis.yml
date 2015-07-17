@@ -5,28 +5,32 @@ os:
   - osx
 
 matrix:
-    include:
-      # hack to use osx vm
-      - os: osx
-        language: objective-c
-        env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=osx
-     
-      # Linux VM
-      - os: linux
-        env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux
+  allow-failures:
+    env: PYTHON_VERSION=3.4
+    
+  include:
+    # hack to use osx vm
+    - os: osx
+      language: objective-c
+      env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=osx
+    - os: osx
+      language: objective-c
+      env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=osx
 
-      - os: linux
-        env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux BUILD=test-vrep
-        sudo: required       
+    # Linux VM
+    - os: linux
+      env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux
+
+    - os: linux
+      env: PYTHON_VERSION=2.7 TRAVIS_OS_NAME=linux BUILD=test-vrep
+      sudo: required       
+
+    - os: linux
+      env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=linux
+   
 
 
-    allow_failures:
-      include:
-        - os: osx
-          language: objective-c
-          env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=osx
-        - os: linux
-          env: PYTHON_VERSION=3.4 TRAVIS_OS_NAME=linux
+
 
 
         
