@@ -22,7 +22,7 @@ chmod +x miniconda.sh
 conda update --yes -q conda
 
 # Thre is no need to install atlas
-conda install --yes pip python=$PYTHON_VERSION numpy scipy matplotlib pyzmq
+conda install --yes pip python=$PYTHON_VERSION numpy scipy matplotlib pyzmq zerorpc
 
 # Upgrade pip
 pip install pip --upgrade

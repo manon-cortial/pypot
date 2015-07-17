@@ -21,7 +21,7 @@ chmod +x miniconda.sh
 conda update --yes -q conda
 # conda create
 # source activate condaenv
-conda install --yes pip python=$PYTHON_VERSION atlas numpy scipy matplotlib pyzmq
+conda install --yes pip python=$PYTHON_VERSION atlas numpy scipy matplotlib pyzmq zerorpc
 
 # Upgrade pip
 pip install pip --upgrade

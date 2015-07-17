@@ -19,7 +19,6 @@ git_url=https://$GH_TOKEN@github.com/$GH_USERNAME/$GH_REPO.git
 
 # Install Sphinx
 pip install -q Sphinx sphinxjp.themes.basicstrap bottle
-pip install zerorpc 
 
 # Build the doc
 pushd ..
