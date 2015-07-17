@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-
+set -x
 # TODO parse online doc to see if it is the last version or not
 pypot_src_version=$(python -c "import pypot; print (pypot.__version__)")
 pypi_package_version=$(python ci/get_pypi_last_version.py pypot)
