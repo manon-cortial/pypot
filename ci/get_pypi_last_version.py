@@ -20,3 +20,5 @@ if __name__ == '__main__':
         print (available[0])
 
 # TODO return packages filename with client.release_urls('package',version)
+# for element in client.release_urls('package',version):
+#     print element['filename']

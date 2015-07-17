@@ -14,8 +14,8 @@ git_url=https://$GH_TOKEN@github.com/$GH_USERNAME/$GH_REPO.git
 # git remote set-url origin $git_url
 
 # Install Sphinx
-pip install -q Sphinx sphinxjp.themes.basicstrap
-pip install -q bottle zmq zerorpc 
+pip install -q Sphinx sphinxjp.themes.basicstrap bottle
+pip install zmq zerorpc 
 
 # Build the doc
 pushd ..
