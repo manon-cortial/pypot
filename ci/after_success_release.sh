@@ -1,7 +1,7 @@
 #!/bin/bash
 set +e
 set -x
-echo "Running after_success-release.sh on $TRAVIS_OS_NAME"
+echo "Running after_success_release.sh on $TRAVIS_OS_NAME"
 
 # Exit if commit is untrusted
 if [[ "$TRAVIS" == "true" ]]; then
@@ -15,9 +15,11 @@ if [[ "$TRAVIS" == "true" ]]; then
 
         echo "Creating distribution files..."
         if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+
+            python setup.py version
             # This release build creates the source distribution. All other release builds
             # should not.
-            python setup.py -q sdist bdist bdist_wheel || exit
+            python setup.py -q sdist bdist || exit
 
             echo "Created the following distribution files:"
             ls -l dist
@@ -39,6 +41,7 @@ if [[ "$TRAVIS" == "true" ]]; then
             # See: https://bitbucket.org/pypa/pypi-metadata-formats/issue/15/enhance-the-platform-tag-definition-for
 
         elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+            python setup.py version
             python setup.py bdist bdist_wheel || exit
             echo "Created the following distribution files:"
             ls -l dist
