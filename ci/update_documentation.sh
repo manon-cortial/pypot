@@ -39,7 +39,7 @@ pushd ..
     # Exit if commit is untrusted
     if [[ "$TRAVIS" == "true" ]]; then
         if [[ "$TRAVIS_PULL_REQUEST" != "false" ]] || [[ "$TRAVIS_BRANCH" != "master" ]]; then
-            echo "This is a pull request. No deployment will be done."
+            echo "This is an untrusted commit. No deployment will be done."
         elif [[ "$pypi_package_version" == "$pypot_src_version" ]]; then
             echo "Pypi version == source version, the doc won't be commited"
         else

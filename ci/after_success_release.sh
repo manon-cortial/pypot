@@ -6,12 +6,12 @@ echo "Running after_success_release.sh on $TRAVIS_OS_NAME"
 # Exit if commit is untrusted
 if [[ "$TRAVIS" == "true" ]]; then
     if [[ "$TRAVIS_PULL_REQUEST" != "false" ]] || [[ "$TRAVIS_BRANCH" != "master" ]]; then
-    echo "This is a pull request. No deployment will be done."
+    echo "This is an untrusted commit. No deployment will be done."
     else
         echo "Installing wheel..."
-        pip install -q wheel || exit
+        pip install -q wheel --user || exit
         echo "Installing twine..."
-        pip install -q twine || exit
+        pip install -q twine --user || exit
 
         echo "Creating distribution files..."
         if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
