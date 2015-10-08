@@ -36,8 +36,8 @@ The pypot library provides a REST API which can be used to access the [Robot](ht
 
 |  | HTTP | JSON | Example of answer |
 |-----------------------------------|:-------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------:|
-| Get the primitives list | GET /primitive/list.json | {"robot": {"get_primitives_list": ""}} | {'primitives': ["stand_up", "sit", "head_tracking"]} |
-| Get the running primitives list | GET /primitive/running/list.json | {"robot": {"get_running_primitives_list": ""}} | {'primitives': ["head_tracking"]} |
+| Get the primitives list | GET /primitive/list.json | {"robot": {"get_primitives_list": {}}} | {'primitives': ["stand_up", "sit", "head_tracking"]} |
+| Get the running primitives list | GET /primitive/running/list.json | {"robot": {"get_running_primitives_list": {}}} | {'primitives': ["head_tracking"]} |
 | Start a primitive | GET /primitive/\<prim>/start.json | {"robot": {"start_primitive": {"primitive": "<prim>"}}} | {} |
 | Stop a primitive | GET /primitive/\<prim>/stop.json | {"robot": {"stop_primitive": {"primitive": "<prim>"}}} | {} |
 | Pause a primitive | GET /primitive/\<prim>/pause.json | {"robot": {"pause_primitive": {"primitive": "<prim>"}}} | {} |
